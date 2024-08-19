@@ -1,4 +1,4 @@
-// MyProvider.js
+// src/components/useContext/MyContextProvider.js
 import React, { useState } from 'react';
 import MyContext from './MyContext';
 
