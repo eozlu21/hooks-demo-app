@@ -1,15 +1,15 @@
 // src/components/useContext/MyContextProvider.js
-import React, { useState } from 'react';
-import MyContext from './MyContext';
+import React, { useState } from "react";
+import MyContext from "./MyContext";
 
 function MyContextProvider({ children }) {
-    const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
 
-    return (
-        <MyContext.Provider value={{ value, setValue }}>
-            {children}
-        </MyContext.Provider>
-    );
+  return (
+    <MyContext.Provider value={{ value, setValue }}>
+      {children}
+    </MyContext.Provider>
+  );
 }
 
 export default MyContextProvider;

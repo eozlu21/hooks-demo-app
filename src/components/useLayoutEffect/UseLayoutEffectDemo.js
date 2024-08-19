@@ -1,39 +1,34 @@
-import React, { useState, useLayoutEffect, useRef } from 'react';
+import React, { useState, useLayoutEffect, useEffect } from "react";
+import Button from "../custom/Button";
+import ButtonWithTooltip from "./ButtonWithTooltip";
 
-const UseLayoutEffectDemo = ({ defaultHeight = 20 }) => {
-  const [height, setHeight] = useState(defaultHeight);
-  const textareaRef = useRef(null);
-
-  useLayoutEffect(() => {
-    const updateHeight = () => {
-      const scrollHeight = textareaRef.current.scrollHeight;
-      setHeight(scrollHeight);
-    };
-
-    textareaRef.current.addEventListener('input', updateHeight);
-    
-    // Initial height adjustment
-    updateHeight();
-
-    return () => {
-      textareaRef.current?.removeEventListener('input', updateHeight);
-    };
-  }, []);
-
+function UseLayoutEffectDemo() {
   return (
-    <textarea
-      ref={textareaRef}
-      style={{
-        height: `${height}px`,
-        overflow: 'hidden',
-        resize: 'none',
-        width: '100%',
-        padding: '8px',
-        boxSizing: 'border-box',
-      }}
-      placeholder="Type something..."
-    />
+    <div>
+      <ButtonWithTooltip
+        tooltipContent={
+          <div>
+            This tooltip does not fit above the button.
+            <br />
+            This is why it's displayed below instead!
+          </div>
+        }
+      >
+        Hover over me (tooltip above)
+      </ButtonWithTooltip>
+      <div style={{ height: 50 }} />
+      <ButtonWithTooltip
+        tooltipContent={<div>This tooltip fits above the button</div>}
+      >
+        Hover over me (tooltip below)
+      </ButtonWithTooltip>
+      <div style={{ height: 50 }} />
+      <ButtonWithTooltip
+        tooltipContent={<div>This tooltip fits above the button</div>}
+      >
+        Hover over me (tooltip below)
+      </ButtonWithTooltip>
+    </div>
   );
-};
-
+}
 export default UseLayoutEffectDemo;
