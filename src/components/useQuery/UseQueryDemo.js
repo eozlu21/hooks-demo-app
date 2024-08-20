@@ -22,7 +22,7 @@ function UseQueryDemo() {
 
   // const id = data.id
   const { mutate, isPending, isError, isSuccess } = useMutation({
-    mutationKey: 'addTodo',
+    mutationKey: 'addPost',
     mutationFn: createPostRequest(),
     onSuccess: (newPost) => {
       // We can use the queryClient to invalidate the query cache so that the new post is fetched from the server
