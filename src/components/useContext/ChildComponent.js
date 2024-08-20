@@ -1,27 +1,27 @@
 // MyComponent.js
-import React from "react";
-import NestedChildComponent from "./NestedChildComponent";
-import { useContext } from "react";
-import MyContext from "./MyContext";
-import Button from "../custom/Button";
+import React from 'react';
+import NestedChildComponent from './NestedChildComponent';
+import { useContext } from 'react';
+import MyContext from './MyContext';
+import Button from '../custom/Button';
 
 function ChildComponent() {
   const { value, setValue } = useContext(MyContext);
 
   const handleChange = () => {
-    const userInput = prompt("Enter your message:");
+    const userInput = prompt('Enter your message:');
     setValue(userInput);
   };
 
   return (
     <div
       style={{
-        fontFamily: "Arial, sans-serif",
-        maxWidth: "600px",
-        margin: "0 auto",
-        textAlign: "center",
-        border: "2px solid black",
-        padding: "10px",
+        fontFamily: 'Arial, sans-serif',
+        maxWidth: '600px',
+        margin: '0 auto',
+        textAlign: 'center',
+        border: '2px solid black',
+        padding: '10px',
       }}
     >
       <h1>Beginning of ChildComponent</h1>

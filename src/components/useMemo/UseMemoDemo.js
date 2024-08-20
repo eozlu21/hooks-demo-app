@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import Button from "../custom/Button";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from '../custom/Button';
 
 // Function to find the smallest prime number greater than a given number
 const findNextPrime = (num) => {
@@ -39,9 +39,9 @@ const UseMemoDemo = () => {
   }, [number]);
 
   const handleChangeNumber = () => {
-    const newNumber = parseInt(prompt("Enter a new number:"), 10);
+    const newNumber = parseInt(prompt('Enter a new number:'), 10);
     if (isNaN(newNumber)) {
-      alert("Please enter a valid number");
+      alert('Please enter a valid number');
     } else {
       setNumber(newNumber);
     }
@@ -50,10 +50,10 @@ const UseMemoDemo = () => {
   return (
     <div
       style={{
-        fontFamily: "Arial, sans-serif",
-        maxWidth: "300px",
-        margin: "0 auto",
-        textAlign: "center",
+        fontFamily: 'Arial, sans-serif',
+        maxWidth: '300px',
+        margin: '0 auto',
+        textAlign: 'center',
       }}
     >
       <h2>Prime Number Finder</h2>
@@ -61,11 +61,11 @@ const UseMemoDemo = () => {
         <strong>Current Number:</strong> {number}
       </p>
       <p>
-        <strong>Next Prime:</strong> {isLoading ? "Loading..." : nextPrime}
+        <strong>Next Prime:</strong> {isLoading ? 'Loading...' : nextPrime}
       </p>
-      <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
         <Button onClick={handleChangeNumber}>Change Number</Button>
-        <Button onClick={() => navigate("/")}>Back to Home</Button>
+        <Button onClick={() => navigate('/')}>Back to Home</Button>
       </div>
     </div>
   );

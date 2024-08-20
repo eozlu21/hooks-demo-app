@@ -1,13 +1,13 @@
-import React, { forwardRef, useImperativeHandle } from "react";
+import React, { forwardRef, useImperativeHandle } from 'react';
 
 const ChildComponent = forwardRef((props, ref) => {
   // Custom functions
   const greet = () => {
-    console.log("Hello!");
+    console.log('Hello!');
   };
 
   const goodbye = () => {
-    console.log("Goodbye!");
+    console.log('Goodbye!');
   };
 
   // Expose custom functions to parent component

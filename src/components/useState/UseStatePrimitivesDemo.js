@@ -1,21 +1,11 @@
-// src/components/UseEffectDemo.js
-import React, { useEffect, useState } from 'react';
+// src/components/UseStateDemo.js
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../custom/Button';
 
-function UseEffectDemo() {
+function UseStatePrimitivesDemo() {
   const [count, setCount] = useState(0);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log('Component mounted OR count changed. Count: ', count);
-    return () => {
-      console.log(
-        'Component unmounted OR count changed (cleaning up BEFORE count changes). Count: ',
-        count
-      );
-    };
-  }, [count]);
 
   return (
     <div
@@ -28,7 +18,7 @@ function UseEffectDemo() {
         textAlign: 'center',
       }}
     >
-      <h2>useEffect Demo</h2>
+      <h2>useState Demo</h2>
       <p>Count: {count}</p>
       <Button onClick={() => setCount(count + 1)}>Increment</Button>
       <br />
@@ -37,4 +27,4 @@ function UseEffectDemo() {
   );
 }
 
-export default UseEffectDemo;
+export default UseStatePrimitivesDemo;

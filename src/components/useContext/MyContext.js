@@ -1,8 +1,8 @@
 // MyContext.js
-import { createContext } from "react";
+import { createContext } from 'react';
 
 const MyContext = createContext({
-  value: "",
+  value: '',
   setValue: (value) => {},
 });
 

@@ -1,34 +1,54 @@
-import React, { useState, useLayoutEffect, useEffect } from "react";
-import Button from "../custom/Button";
-import ButtonWithTooltip from "./ButtonWithTooltip";
+import React, { useState, useLayoutEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from '../custom/Button';
 
 function UseLayoutEffectDemo() {
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+  const elementRef = useRef(null);
+
+  const navigate = useNavigate();
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      if (elementRef.current) {
+        setWidth(elementRef.current.offsetWidth);
+        setHeight(elementRef.current.offsetHeight);
+      }
+    }
+
+    updateSize();
+
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
+  const divStyle = {
+    border: '2px solid blue',
+    padding: '20px',
+    marginTop: '20px',
+    backgroundColor: '#f0f0f0',
+    width: '100vw',
+    height: '50vh',
+  };
+
   return (
     <div>
-      <ButtonWithTooltip
-        tooltipContent={
-          <div>
-            This tooltip does not fit above the button.
-            <br />
-            This is why it's displayed below instead!
-          </div>
-        }
-      >
-        Hover over me (tooltip above)
-      </ButtonWithTooltip>
-      <div style={{ height: 50 }} />
-      <ButtonWithTooltip
-        tooltipContent={<div>This tooltip fits above the button</div>}
-      >
-        Hover over me (tooltip below)
-      </ButtonWithTooltip>
-      <div style={{ height: 50 }} />
-      <ButtonWithTooltip
-        tooltipContent={<div>This tooltip fits above the button</div>}
-      >
-        Hover over me (tooltip below)
-      </ButtonWithTooltip>
+      <h2>useLayoutEffect Demo</h2>
+      <p>
+        This component uses useLayoutEffect to measure and display its own
+        dimensions. Try resizing the window to see it update in real-time.
+      </p>
+      <div ref={elementRef} style={divStyle}>
+        <p>This is the measured element.</p>
+        <p>Its dimensions are:</p>
+        <p>Width: {width}px</p>
+        <p>Height: {height}px</p>
+      </div>
+      <br />
+      <Button onClick={() => navigate('/')}>Back to Home</Button>
     </div>
   );
 }
+
 export default UseLayoutEffectDemo;

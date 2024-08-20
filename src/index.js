@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-const queryClient = new QueryClient({});
+
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { staleTime: 60 * 1000, gcTime: 1000 * 60 * 10} },
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <QueryClientProvider client={queryClient}>
-        <App />
-    </QueryClientProvider>
+  <QueryClientProvider client={queryClient}>
+    <App />
+  </QueryClientProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

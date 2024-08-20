@@ -1,7 +1,7 @@
-import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import ChildComponent from "./ChildComponent";
-import Button from "../custom/Button";
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ChildComponent from './ChildComponent';
+import Button from '../custom/Button';
 
 function UseImperativeHandleDemo() {
   const navigate = useNavigate();
@@ -9,12 +9,12 @@ function UseImperativeHandleDemo() {
   return (
     <div
       style={{
-        display: "flex",
-        flexDirection: "column",
-        fontFamily: "Arial, sans-serif",
-        maxWidth: "300px",
-        margin: "0 auto",
-        textAlign: "center",
+        display: 'flex',
+        flexDirection: 'column',
+        fontFamily: 'Arial, sans-serif',
+        maxWidth: '300px',
+        margin: '0 auto',
+        textAlign: 'center',
       }}
     >
       <h2>useImperativeHandleDemo Demo</h2>
@@ -28,7 +28,7 @@ function UseImperativeHandleDemo() {
         Use Goodbye Method from Child
       </Button>
       <br />
-      <Button onClick={() => navigate("/")}>Back to Home</Button>
+      <Button onClick={() => navigate('/')}>Back to Home</Button>
     </div>
   );
 }
